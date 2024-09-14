@@ -1,13 +1,13 @@
-import Image1 from "./Images/bag.jpg";
-import Image2 from "./Images/sandle.jpg";
-import Image3 from "./Images/watch.jpg";
-import Image4 from "./Images/cap.jpg";
-import Image5 from "./Images/boot1.jpg";
-import Image6 from "./Images/dove.jpg";
-import Image7 from "./Images/headphone.jpg";
-import Image8 from "./Images/robot.jpg";
-import Image9 from "./Images/wwatch.jpg";
-import Image10 from "./Images/shirt.jpg";
+import Image1 from "../assets/images/bag.jpg";
+import Image2 from "../assets/images/sandle.jpg";
+import Image3 from "../assets/images/watch.jpg";
+import Image4 from "../assets/images/cap.jpg";
+import Image5 from "../assets/images/boot1.jpg";
+import Image6 from "../assets/images/dove.jpg";
+import Image7 from "../assets/images/headphone.jpg";
+import Image8 from "../assets/images/robot.jpg";
+import Image9 from "../assets/images/wwatch.jpg";
+import Image10 from "../assets/images/shirt.jpg";
 
 export const Categories = [
     'Electronics',

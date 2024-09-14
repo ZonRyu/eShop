@@ -17,7 +17,6 @@ const categories = [
         imageUrl: KidCategory
     },
 ]
-console.log(categories.imageUrl)
 
 const CategorySection = () => {
   return (
