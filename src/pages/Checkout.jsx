@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { FaAngleDown, FaAngleUp } from 'react-icons/fa'
 import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
-const Checkout = () => {
+const Checkout = ({ setOrder }) => {
   const [billingToggle, setBillingToggle] = useState(true)
   const [shippingToggle, setShippingToggle] = useState(false)
   const [paymentToggle, setPaymentToggle] = useState(false)
@@ -14,16 +15,29 @@ const Checkout = () => {
     zip: '',
   })
 
+  const cart = useSelector((state) => state.cart)
+  const navigate = useNavigate()
+
   const setShippingHandler = (e) => {
     e.preventDefault()
     setShippingInfo({
         ...shippingInfo, 
         [e.target.name]: e.target.value 
     })
-    console.log(shippingInfo)
   }
 
-  const cart = useSelector((state) => state.cart)
+  const placeOrderHandler = (e) => {
+    const neworder = {
+        products: cart.products,
+        orderNumber: '1234',
+        shippingInformation: shippingInfo,
+        totalPrice: cart.totalPrice,
+    }
+
+    setOrder(neworder)
+    navigate('/order-confirmation')
+  }
+
 
   return (
     <div className='container mx-auto py-8 min-h-96 xs:px-4'>
@@ -189,7 +203,7 @@ const Checkout = () => {
                         <span className='font-semibold'>${cart.totalPrice.toFixed(2)}</span>
                     </div>
                 </div>
-                <button className='w-full bg-red-600 text-white py-2 mt-6 hover:bg-red-800'>Place Order</button>
+                <button className='w-full bg-red-600 text-white py-2 mt-6 hover:bg-red-800' onClick={() => placeOrderHandler()}>Place Order</button>
             </div>
         </div>
     </div>
