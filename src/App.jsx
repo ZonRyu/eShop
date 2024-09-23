@@ -8,6 +8,7 @@ import Checkout from "./pages/Checkout"
 import Order from "./pages/Order"
 import { useState } from "react"
 import Search from "./pages/Search"
+import ProductDetail from "./pages/ProductDetail"
 
 function App() {
   const [order, setOrder] = useState(null)
@@ -22,6 +23,7 @@ function App() {
           <Route path="/checkout" element={<Checkout setOrder={setOrder} />}></Route>
           <Route path="/order-confirmation" element={<Order order={order} />}></Route>
           <Route path="/search" element={<Search />}></Route>
+          <Route path="/product/:id" element={<ProductDetail />}></Route>
         </Routes>
       <Footer />
     </BrowserRouter>
