@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className='bg-gray-800 text-white py-8 px-4 md:px-16 lg:px-24'>
       <div className='container  mx-auto grid grid-cols-1 md:grid-cols-3 gap-8'>
         <div>
-          <h3 className='text-left font-semibold'>e-Commerce</h3>
+          <h3 className='text-left font-semibold'>e-Shop</h3>
           <p className='mt-4'>
             Your one-step for all your needs, Shop with use and experience the best online
             shopping experiences.
@@ -54,7 +54,7 @@ const Footer = () => {
       </div>
       <div className='mt-8 border-t border-gray-700 pt-4'>
         <div className='container mx-auto flex flex-col md:flex-row justify-between items-center'>
-          <p>&copy; 2024 e-Commerce All rights reserved</p>
+          <p>&copy; 2024 e-Shop All rights reserved</p>
           <div className='flex space-x-4 mt-4 md:mt-0'>
             <a href="" className='hover:underline'>Privacy Policy</a>
             <a href="" className='hover:underline'>Terms & Conditions</a>

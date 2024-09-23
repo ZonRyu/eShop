@@ -35,7 +35,7 @@ const Home = () => {
           <img src={HeroImage} alt="Hero Image" className="h-full w-full" />
           <div className="absolute top-16 left-8">
             <p className="text-gray-600 mb-4">Hello Users</p>
-            <h2 className="text-3xl font-bold">WELCOME TO ECOMMERCE</h2>
+            <h2 className="text-3xl font-bold">WELCOME TO E-SHOP</h2>
             <p className="text-xl mt-2.5 font-bold text-gray-800">MILLIONS+ PRODUCTS</p>
             <button className="bg-red-600 px-8 py-1.5 text-white mt-4 hover:bg-red-700
              transform transition-transform duration-300 hover:scale-105">SHOP NOW</button>

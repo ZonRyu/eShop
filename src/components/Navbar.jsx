@@ -1,15 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FaSearch, FaShoppingCart, FaUser } from 'react-icons/fa'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import Modal from './Modal'
+import Login from './Login'
+import Register from './Register'
 
 const Navbar = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isLogin, setIsLogin] = useState(true)
+
   const products = useSelector((state) => state.cart.products)
+
+  const signUpAndLoginHandler = () => {
+    setIsLogin(!isLogin)
+  }
+
   return (
     <nav className='bg-white shadow-md'>
       <div className='container mx-auto xs:px-4 py-4 flex justify-between items-center'>
         <div className='text-lg font-bold'>
-          <Link to="/">e-Commerce</Link>
+          <Link to="/">e-Shop</Link>
         </div>
         <div className='relative flex-1 mx-4'>
           <form>
@@ -26,7 +37,7 @@ const Navbar = () => {
               </span>
             )}
           </Link>
-          <button className='hidden md:block'>
+          <button className='hidden md:block' onClick={() => setIsModalOpen(true)}>
             Login | Register
           </button>
           <button className='block md:hidden'>
@@ -48,6 +59,9 @@ const Navbar = () => {
           About
         </Link>
       </div>
+      <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
+        {isLogin ? <Login func={signUpAndLoginHandler} /> : <Register func={signUpAndLoginHandler} />}
+      </Modal>
     </nav>
   )
 }
