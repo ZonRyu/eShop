@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { FaAngleDown, FaAngleUp } from 'react-icons/fa'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { checkout } from '../redux/cartSlice'
 
 const Checkout = ({ setOrder }) => {
   const [billingToggle, setBillingToggle] = useState(true)
@@ -16,6 +17,7 @@ const Checkout = ({ setOrder }) => {
   })
 
   const cart = useSelector((state) => state.cart)
+  const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const setShippingHandler = (e) => {
@@ -35,6 +37,7 @@ const Checkout = ({ setOrder }) => {
     }
 
     setOrder(neworder)
+    dispatch(checkout())
     navigate('/order-confirmation')
   }
 
@@ -203,7 +206,7 @@ const Checkout = ({ setOrder }) => {
                         <span className='font-semibold'>${cart.totalPrice.toFixed(2)}</span>
                     </div>
                 </div>
-                <button className='w-full bg-red-600 text-white py-2 mt-6 hover:bg-red-800' onClick={() => placeOrderHandler()}>Place Order</button>
+                <button className='w-full bg-red-600 text-white py-2 mt-6 rounded hover:bg-red-800' onClick={() => placeOrderHandler()}>Place Order</button>
             </div>
         </div>
     </div>

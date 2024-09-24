@@ -11,7 +11,6 @@ const ProductCard = ({props}) => {
     e.stopPropagation()
     e.preventDefault()
     dispatch(addToCart(props))
-    alert('Product added to cart!')
   }
 
   return (

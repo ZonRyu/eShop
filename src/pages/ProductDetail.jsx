@@ -32,8 +32,8 @@ const ProductDetail = () => {
 
           <div className='flex items-center mb-4 gap-x-2'>
             {/* <label htmlFor="quantity" className='mr-2'>Quantity:</label> */}
-            <input type="number" name="quantity" id="quantity" min="1" className='border p-1 w-16' />
-            <button className='bg-red-600 text-white py-1.5 px-4 hover:bg-red-800'>Add to Cart</button>
+            <input type="number" name="quantity" id="quantity" min="1" className='border p-1 w-16 rounded' />
+            <button className='bg-red-600 text-white py-1.5 px-4 rounded hover:bg-red-800'>Add to Cart</button>
           </div>
           <div className='flex flex-col gap-y-4 mt-4'>
             <p className='flex items-center'>

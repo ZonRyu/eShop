@@ -30,8 +30,8 @@ const Order = ({ order }) => {
             </div>
         </div>
         <div className='mt-6'>
-            <button className='bg-green-500 text-white py-2 px-4 hover:bg-green-600'>Order Tracking</button>
-            <button className='ml-4 bg-red-600 text-white py-2 px-4 hover:bg-red-800' onClick={() => navigate('/')}>Continue Shopping</button>
+            <button className='bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600'>Order Tracking</button>
+            <button className='ml-4 bg-red-600 text-white py-2 px-4 rounded hover:bg-red-800' onClick={() => navigate('/')}>Continue Shopping</button>
         </div>
     </div>
   )

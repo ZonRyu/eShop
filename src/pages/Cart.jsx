@@ -22,12 +22,12 @@ const Cart = () => {
             <div className='flex flex-col md:flex-row justify-between space-x-10 mt-8'>
                 <div className='md:w-2/3'>
                     <div className='flex justify-between border-b items-center mb-4 text-xs font-bold'>
-                        <p>PRODUCTS</p>
-                        <div className='flex space-x-8 items-center'>
-                            <p>PRICE</p>
-                            <p>QUANTITY</p>
-                            <p>SUBTOTAL</p>
-                            <p>REMOVE</p>
+                        <p className='ml-2 mb-2'>PRODUCTS</p>
+                        <div className='flex space-x-8 w-[55%] text-center'>
+                            <p className='mb-2 mx-auto'>PRICE</p>
+                            <p className='mb-2 mx-auto'>QUANTITY</p>
+                            <p className='mb-2 mx-auto'>SUBTOTAL</p>
+                            <p className='mb-2 mx-auto'>REMOVE</p>
                         </div>
                     </div>
                     {cart.products.map((product) => (
@@ -78,7 +78,7 @@ const Cart = () => {
                         <span>Total price:</span>
                         <span>${cart.totalPrice.toFixed(2)}</span>
                     </div>
-                    <button className='w-full bg-red-600 text-white py-2 hover:bg-red-800' onClick={() => navigate('/checkout')}>Proced to checkout</button>
+                    <button className='w-full bg-red-600 text-white py-2 rounded hover:bg-red-800' onClick={() => navigate('/checkout')}>Proced to checkout</button>
                 </div>
             </div>
             <Modal
@@ -89,7 +89,7 @@ const Cart = () => {
         </div>
         :
         <div className='flex justify-center'>
-            <img src={EmptyCart} alt="" className='w-96' />
+            <img src={EmptyCart} alt="" className='w-[45rem]' />
         </div>
       }
     </div>

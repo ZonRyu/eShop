@@ -1,4 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
+import Checkout from "../pages/Checkout";
 
 const initialState = {
     products: [],
@@ -25,6 +27,7 @@ const cartSlice = createSlice({
             }
             state.totalPrice += newItem.price
             state.totalQuantity += 1
+            toast.success('Product added to cart!')
         },
         removeFromCart(state, action) {
             const id = action.payload
@@ -33,6 +36,7 @@ const cartSlice = createSlice({
                 state.totalPrice -= findItem.price
                 state.totalQuantity -= 1
                 state.products = state.products.filter(item => item.id !== id)
+                toast.success('Product removed from cart!')
             }
         },
         increaseQuantity(state, action) {
@@ -56,12 +60,18 @@ const cartSlice = createSlice({
                     state.totalPrice -= findItem.price
                 }
             } else {
-                alert("Quantity cannot be less than 1")
+                toast.error('Quantity cannot be less than 1!')
             }
+        },
+        checkout(state) {
+            state.products = []
+            state.totalQuantity = 0
+            state.totalPrice = 0
+            toast.success('Order placed successfully!')
         }
     }
 })
 
-export const {addToCart, removeFromCart, increaseQuantity, decreaseQuantity} = cartSlice.actions
+export const {addToCart, removeFromCart, increaseQuantity, decreaseQuantity, checkout} = cartSlice.actions
 
 export default cartSlice.reducer
