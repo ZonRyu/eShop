@@ -11,7 +11,11 @@ export default {
       'xs': '475px',
       ...defaultTheme.screens,
     },
-    extend: {},
+    extend: {
+      width: {
+        '48%': '48.75%'
+      }
+    },
   },
   plugins: [],
 }
