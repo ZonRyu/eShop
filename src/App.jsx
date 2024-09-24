@@ -22,7 +22,7 @@ function App() {
           <Route path="/cart" element={<Cart />}></Route>
           <Route path="/checkout" element={<Checkout setOrder={setOrder} />}></Route>
           <Route path="/order-confirmation" element={<Order order={order} />}></Route>
-          <Route path="/search" element={<Search />}></Route>
+          <Route path="/search/:name" element={<Search />}></Route>
           <Route path="/product/:id" element={<ProductDetail />}></Route>
         </Routes>
       <Footer />

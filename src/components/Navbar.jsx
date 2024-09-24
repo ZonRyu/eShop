@@ -23,7 +23,7 @@ const Navbar = () => {
   const searchHandler = (e) => {
     e.preventDefault()
     dispatch(setSearchTerm(search))
-    navigate('/search')
+    navigate(`/search/${search}`)
   }
 
   return (
