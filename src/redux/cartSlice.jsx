@@ -16,18 +16,15 @@ const cartSlice = createSlice({
             const newItem = action.payload
             const itemIndex = state.products.find((item) => item.id === newItem.id)
             if(itemIndex) {
-                state.quantity += 1
-                state.totalPrice += newItem.price
+                itemIndex.quantity += newItem.quantity
             } else {
                 state.products.push({
                     ...newItem,
-                    quantity: 1,
-                    totalPrice: newItem.price
                 })
             }
-            state.totalPrice += newItem.price
-            state.totalQuantity += 1
-            toast.success('Product added to cart!')
+            state.totalPrice += newItem.price * newItem.quantity
+            state.totalQuantity += newItem.quantity
+            toast.success(`${ newItem.quantity > 1 ? `Products` : `Product`} added to cart!`)
         },
         removeFromCart(state, action) {
             const id = action.payload

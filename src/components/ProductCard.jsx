@@ -10,7 +10,7 @@ const ProductCard = ({props}) => {
   const handleAddToCart = (e, props) => {
     e.stopPropagation()
     e.preventDefault()
-    dispatch(addToCart(props))
+    dispatch(addToCart({ ...props, quantity: 1 }))
   }
 
   return (
