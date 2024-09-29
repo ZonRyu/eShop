@@ -31,8 +31,8 @@ const Home = ({ darkMode }) => {
           </ul>
         </div>
 
-        <div className="w-full md:w-9/12 mt-8 md:mt-0 h-96 relative bg-amber-500">
-          <img src={HeroImage} alt="Hero Image" className="h-full w-full rounded" />
+        <div className="w-full md:w-9/12 mt-8 md:mt-0 h-96 relative bg-amber-500 rounded">
+          <img src={HeroImage} alt="Hero Image" className="h-full w-full" />
           <div className="absolute top-16 left-8 dark:text-gray-200">
             <p className="text-gray-600 dark:text-gray-300 mb-4">Hello Users</p>
             <h2 className="text-3xl font-bold">WELCOME TO E-SHOP</h2>

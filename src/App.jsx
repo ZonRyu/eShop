@@ -12,13 +12,14 @@ import ProductDetail from "./pages/ProductDetail"
 
 import { ToastContainer } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
+import NotFound from "./pages/NotFound"
 
 function App() {
   const [order, setOrder] = useState(null)
   const [darkMode, setDarkMode] = useState(false)
 
   return (
-    <div className={`${darkMode && "dark"}`}>
+    <div className={darkMode ? "dark" : "light"}>
       <BrowserRouter>
         <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
         <ToastContainer theme={darkMode ? "dark" : "light"} />
@@ -30,6 +31,7 @@ function App() {
           <Route path="/order-confirmation" element={<Order order={order} />}></Route>
           <Route path="/search/:name" element={<Search />}></Route>
           <Route path="/product/:id" element={<ProductDetail />}></Route>
+          <Route path="*" element={<NotFound />}></Route>
         </Routes>
         <Footer />
       </BrowserRouter>
