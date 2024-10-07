@@ -16,7 +16,7 @@ const productSlice = createSlice({
         setSearchTerm: (state, action) => {
             state.searchTerm = action.payload
             state.filteredData = state.products.filter((item) => 
-                item.name.toLowerCase().includes(state.searchTerm.toLowerCase())
+                item.title.toLowerCase().includes(state.searchTerm.toLowerCase())
             )
         }
     }

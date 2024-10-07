@@ -20,7 +20,7 @@ const Order = ({ order }) => {
                     <h4 className='text-md font-semibold mb-2'>Items Ordered</h4>
                     {order.products.map((product) => (
                         <div key={product.id} className='flex justify-between mt-2'>
-                            <p>{product.name} (x{product.quantity})</p>
+                            <p>{product.title} (x{product.quantity})</p>
                             <p>${product.price * product.quantity}</p>
                         </div>
                     ))}

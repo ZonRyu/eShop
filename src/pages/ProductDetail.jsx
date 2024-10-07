@@ -7,7 +7,7 @@ import { addToCart } from '../redux/cartSlice'
 
 const ProductDetail = () => {
   const {id} = useParams()
-  console.log(window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1))
+  // console.log(window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1))
   const products = useSelector(state => state.products.products)
   const [product, setProduct] = useState()
   const [quantity, setQuantity] = useState(1)
@@ -34,9 +34,9 @@ const ProductDetail = () => {
   }
 
   const loadingElem = (
-    <div class="flex flex-col items-center justify-center h-[80vh] dark:bg-neutral-900">
+    <div className="flex flex-col items-center justify-center h-[80vh] dark:bg-neutral-900">
       <div
-        class="inline-block h-48 w-48 animate-spin rounded-full border-4 border-solid border-current border-e-transparent align-[-0.125em] text-surface motion-reduce:animate-[spin_1.5s_linear_infinite] dark:text-white"
+        className="inline-block h-48 w-48 animate-spin rounded-full border-4 border-solid border-current border-e-transparent align-[-0.125em] text-surface motion-reduce:animate-[spin_1.5s_linear_infinite] dark:text-white"
         role="status">
       </div>
       <span className='mt-6 text-2xl dark:text-neutral-200'>Loading ...</span>
@@ -51,12 +51,12 @@ const ProductDetail = () => {
         <div className='flex flex-col md:flex-row gap-x-16'>
           {/* Product Image */}
           <div className='md:w-1/2 py-4 shadow-md dark:shadow-none md:px-8 h-96 flex justify-center'>
-            <img src={product.image} alt={product.name} className='h-full' />
+            <img src={product.image} alt={product.title} className='h-full' />
           </div>
 
           {/* Product Details */}
-          <div className='md:w-1/2 p-4 shadow-md md:p-16 flex flex-col items-center gap-y-2'>
-            <h2 className='text-3xl font-semibold mb-2 dark:text-neutral-200'>{product.name}</h2>
+          <div className='md:w-1/2 p-4 shadow-md md:p-8 flex flex-col items-center gap-y-2'>
+            <h2 className='text-3xl font-semibold mb-2 dark:text-neutral-200'>{product.title}</h2>
             <p className='text-xl font-semibold text-gray-800 dark:text-neutral-400 mb-4'>
               ${product.price}
             </p>
@@ -81,9 +81,7 @@ const ProductDetail = () => {
         <div className='mt-8 dark:text-neutral-200'>
           <h3 className='text-xl font-bold mb-2'>Product Description</h3>
           <p className='dark:text-neutral-300'>
-            Minim officia cillum duis anim est incididunt qui amet culpa occaecat. 
-            Sit consequat quis magna adipisicing reprehenderit exercitation qui 
-            sunt sunt sunt. Ut veniam veniam anim dolore ullamco tempor veniam magna amet.
+            {product.description}
           </p>
         </div>
       </div>

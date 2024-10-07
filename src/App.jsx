@@ -6,7 +6,7 @@ import Shop from "./pages/Shop"
 import Cart from "./pages/Cart"
 import Checkout from "./pages/Checkout"
 import Order from "./pages/Order"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Search from "./pages/Search"
 import ProductDetail from "./pages/ProductDetail"
 
@@ -14,9 +14,22 @@ import { ToastContainer } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
 import NotFound from "./pages/NotFound"
 
+import { getProducts } from "./services/product.service"
+import { useDispatch } from "react-redux"
+import { setProducts } from "./redux/productSlice"
+
 function App() {
   const [order, setOrder] = useState(null)
   const [darkMode, setDarkMode] = useState(false)
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    // dispatch(setProducts(mockData))
+    getProducts((data) => {
+      dispatch(setProducts(data))
+    })
+  }, [])
 
   return (
     <div className={darkMode ? "dark" : "light"}>

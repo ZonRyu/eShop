@@ -2,19 +2,16 @@ import { Categories, mockData } from "../assets/mockData"
 import HeroImage from '../assets/images/hero-page.png'
 import InfoSection from "../components/InfoSection"
 import CategorySection from "../components/CategorySection"
-import { setProducts } from "../redux/productSlice"
-import { useDispatch, useSelector } from "react-redux"
-import { useEffect } from "react"
+import { useSelector } from "react-redux"
 import ProductCard from "../components/ProductCard"
 import Shop from "./Shop"
 
+import { getProducts } from "../services/product.service"
+
 const Home = ({ darkMode }) => {
-  const dispatch = useDispatch()
   const products = useSelector((state) => state.products.products)
 
-  useEffect(() => {
-    dispatch(setProducts(mockData))
-  }, [])
+
   
   return (
     <div className={`bg-white dark:bg-neutral-900 ${darkMode ? 'pt-2' : 'mt-2'} px-4 md:px-16 lg:px-24`}>

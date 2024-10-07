@@ -39,11 +39,11 @@ const Cart = () => {
                                 <div className='md:flex items-center space-x-4'>
                                     <img 
                                     src={product.image} 
-                                    alt={product.name}
+                                    alt={product.title}
                                     className='w-16 h-16 object-contain rounded' 
                                     />
                                     <div className='flex-1 ml-4'>
-                                        <h3 className='text-lg font-semibold'>{product.name}</h3>
+                                        <h3 className='text-lg font-semibold'>{product.title}</h3>
                                     </div>
                                 </div>
                                 <div className='flex space-x-12 items-center'>
