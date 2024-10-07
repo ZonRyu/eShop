@@ -1,17 +1,14 @@
-import { Categories, mockData } from "../assets/mockData"
 import HeroImage from '../assets/images/hero-page.png'
 import InfoSection from "../components/InfoSection"
 import CategorySection from "../components/CategorySection"
 import { useSelector } from "react-redux"
 import ProductCard from "../components/ProductCard"
 import Shop from "./Shop"
-
-import { getProducts } from "../services/product.service"
+import { Link } from 'react-router-dom'
 
 const Home = ({ darkMode }) => {
   const products = useSelector((state) => state.products.products)
-
-
+  const categories = useSelector((state) => state.categories.categories)
   
   return (
     <div className={`bg-white dark:bg-neutral-900 ${darkMode ? 'pt-2' : 'mt-2'} px-4 md:px-16 lg:px-24`}>
@@ -19,10 +16,10 @@ const Home = ({ darkMode }) => {
         <div className="w-full md:w-3/12">
           <div className="bg-red-600 text-white text-xs font-bold px-2 py-2.5 rounded-t">SHOP BY CATEGORIES</div>
           <ul className="space-y-4 bg-gray-100 dark:bg-neutral-700 dark:text-neutral-200 p-3 border-neutral-700 rounded-b">
-            {Categories.map((category, index) => (
-              <li key={index} className="flex items-center text-sm font-medium">
+            {categories.map((category, index) => (
+              <li key={index} className="flex items-center text-sm font-medium first-letter:capitalize">
                 <div className="w-2 h-2 border border-red-600 rounded-full mr-2"></div>
-                {category}
+                <Link to={`/category/${category}`} className='first-letter:capitalize'>{category}</Link>
               </li>
             ))}
           </ul>
