@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@media screen and (max-width: 480px) {
+    .Toastify__toast {
+        margin: 20px 10px 0px 10px;
+    }
+}

@@ -12,7 +12,7 @@ const Home = ({ darkMode }) => {
   
   return (
     <div className={`bg-white dark:bg-neutral-900 ${darkMode ? 'pt-2' : 'mt-2'} px-4 md:px-16 lg:px-24`}>
-      <div className="container mx-auto py-4 flex flex-col md:flex-row space-x-2">
+      <div className="container mx-auto py-4 flex flex-col md:flex-row md:space-x-2">
         <div className="w-full md:w-3/12">
           <div className="bg-red-600 text-white text-xs font-bold px-2 py-2.5 rounded-t">SHOP BY CATEGORIES</div>
           <ul className="space-y-4 bg-gray-100 dark:bg-neutral-700 dark:text-neutral-200 p-3 border-neutral-700 rounded-b">
@@ -25,9 +25,9 @@ const Home = ({ darkMode }) => {
           </ul>
         </div>
 
-        <div className="w-full md:w-9/12 mt-8 md:mt-0 h-96 relative bg-amber-500 rounded">
+        <div className="w-full md:w-9/12 mr-0 mt-8 md:mt-0 h-96 relative bg-amber-500 rounded">
           <img src={HeroImage} alt="Hero Image" className="h-full w-full" />
-          <div className="absolute top-16 left-8 dark:text-gray-200">
+          <div className="absolute w-7/12 top-16 left-8 dark:text-gray-200">
             <p className="text-gray-600 dark:text-gray-300 mb-4">Hello Users</p>
             <h2 className="text-3xl font-bold">WELCOME TO E-SHOP</h2>
             <p className="text-xl mt-2.5 font-bold">MILLIONS+ PRODUCTS</p>

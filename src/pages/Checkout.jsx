@@ -44,9 +44,9 @@ const Checkout = ({ setOrder }) => {
 
   return (
     <div className='dark:bg-neutral-900'>
-        <div className='container mx-auto py-8 min-h-96 xs:px-4 dark:text-neutral-200'>
-            <h3 className='text-2xl font-semibold mb-4'>CHECKOUT</h3>
-            <div className='flex flex-col md:flex-row justify-between space-x-10 mt-8'>
+        <div className='container mx-auto py-8 min-h-96 dark:text-neutral-200'>
+            <h3 className='text-2xl mx-4 font-semibold mb-4'>CHECKOUT</h3>
+            <div className=' mx-4 flex flex-col md:flex-row justify-between gap-4 mt-8'>
                 <div className='md:w-1/2'>
 
                     {/* Billing */}
