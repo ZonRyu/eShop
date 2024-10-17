@@ -3,10 +3,14 @@ import { useSelector } from 'react-redux'
 import ProductCard from '../components/ProductCard'
 import NoProduct from '../assets/images/not_found.png'
 import { useParams } from 'react-router-dom'
+import Loading from '../components/Loading'
 
 const Search = () => {
   const { name } = useParams()
   const filteredProducts = useSelector((state) => state.products.filteredData)
+
+  if (!filteredProducts) return <Loading />
+
   return (
     <div className='mx-auto py-12 px-4 md:px-24 lg:px-28'>
         {filteredProducts.length > 0 ?

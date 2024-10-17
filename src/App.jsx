@@ -19,12 +19,22 @@ import { getCategories, getProducts } from "./services/product.service"
 import { useDispatch } from "react-redux"
 import { setProducts } from "./redux/productSlice"
 import { setCategories } from "./redux/categorySlice"
+import Loading from "./components/Loading"
 
 function App() {
   const [order, setOrder] = useState(null)
   const [darkMode, setDarkMode] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
 
   const dispatch = useDispatch()
+
+  const onLoadEffect = () => {
+    setTimeout(() => {
+        setIsLoading(false);
+    }, 2000);
+  }
+
+  useEffect(onLoadEffect, []);
 
   useEffect(() => {
     // dispatch(setProducts(mockData))
@@ -36,6 +46,8 @@ function App() {
     })
 
   }, [])
+
+  if (isLoading) return <Loading /> 
 
   return (
     <div className={darkMode ? "dark" : "light"}>

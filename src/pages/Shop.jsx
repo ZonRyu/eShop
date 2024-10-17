@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import ProductCard from '../components/ProductCard'
+import Loading from '../components/Loading'
 
 const Shop = () => {
   const [homePage, setHomePage] = useState(true)
@@ -14,6 +15,8 @@ const Shop = () => {
   }, [window.location.pathname])
 
   const products = useSelector((state) => state.products.products)
+
+  if (!products) return <Loading />
 
   return (
     <div className='dark:bg-neutral-900'>

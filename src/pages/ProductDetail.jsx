@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { addToCart } from '../redux/cartSlice'
+import Loading from '../components/Loading'
 
 const ProductDetail = () => {
   const {id} = useParams()
@@ -33,17 +34,7 @@ const ProductDetail = () => {
     dispatch(addToCart({ ...product, quantity: quantity }))
   }
 
-  const loadingElem = (
-    <div className="flex flex-col items-center justify-center h-[80vh] dark:bg-neutral-900">
-      <div
-        className="inline-block h-48 w-48 animate-spin rounded-full border-4 border-solid border-current border-e-transparent align-[-0.125em] text-surface motion-reduce:animate-[spin_1.5s_linear_infinite] dark:text-white"
-        role="status">
-      </div>
-      <span className='mt-6 text-2xl dark:text-neutral-200'>Loading ...</span>
-    </div>
-  )
-
-  if (!product) return loadingElem
+  if (!product) return <Loading />
 
   return (
     <div className='dark:bg-neutral-900'>
