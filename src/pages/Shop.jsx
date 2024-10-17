@@ -21,6 +21,7 @@ const Shop = () => {
   return (
     <div className='dark:bg-neutral-900'>
       <div className='container mx-auto py-12'>
+        <div className='mx-6 sm:mx-0'>
           <h2 className='text-2xl font-bold mb-6 text-center dark:text-neutral-200'>Shop</h2>
           <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 cursor-pointer'>
             {homePage ?
@@ -33,6 +34,7 @@ const Shop = () => {
               ))
             }
           </div>
+        </div>
       </div>
     </div>
   )

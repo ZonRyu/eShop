@@ -9,6 +9,7 @@ import { setSearchTerm } from '../redux/productSlice'
 import { CiLight } from 'react-icons/ci'
 import { MdDarkMode } from 'react-icons/md'
 import { GiHamburgerMenu } from 'react-icons/gi'
+import useWindowSize from '../hooks/useWindowSize'
 
 const Navbar = ({ darkMode, setDarkMode}) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -18,6 +19,8 @@ const Navbar = ({ darkMode, setDarkMode}) => {
   const navigate = useNavigate()
 
   const products = useSelector((state) => state.cart.products)
+
+  const size = useWindowSize()
 
   const signUpAndLoginHandler = () => {
     setIsLogin(!isLogin)
@@ -80,24 +83,46 @@ const Navbar = ({ darkMode, setDarkMode}) => {
           About
         </Link>
       </div>
-      <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
-        <div>
-            <li className='flex list-none'>
-              <Link to='/cart' className='mr-4 relative dark:text-neutral-200'>
-              <div className='flex items-center'>
-                <FaShoppingCart className='text-2xl' />
-                <h2 className='ml-4 font-semibold'>Shopping Cart</h2>
-                {products.length > 0 && (
-                  <span className='absolute -top-1.5 text-xs w-3 left-5 flex items-center justify-center bg-red-600 text-white rounded-full'>
-                    {products.length}
-                  </span>
-                )}
-              </div>
-              </Link>
-            </li>
-            <button className='absolute top-7 right-10 text-gray-600 text-4xl' onClick={() => setIsModalOpen(false)}>&times;</button>
-        </div>
-      </Modal>
+      {
+        size.width < 768 &&
+        isModalOpen &&
+        <Modal Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
+          <div>
+              <li className='flex list-none mb-2'>
+                <Link to='/cart' className='mr-4 relative w-3/4 dark:text-neutral-200'>
+                  <div className='flex items-center'>
+                    <FaShoppingCart className='text-2xl' />
+                    <h2 className='ml-4 font-semibold'>Shopping Cart</h2>
+                    {products.length > 0 && (
+                      <span className='absolute -top-1.5 text-xs w-3 left-5 flex items-center justify-center bg-red-600 text-white rounded-full'>
+                        {products.length}
+                      </span>
+                    )}
+                  </div>
+                </Link>
+              </li>
+              <li className='flex list-none'>
+                <button onClick={() => setDarkMode(!darkMode)}>
+                  <div className='flex items-center'>
+                    {
+                      darkMode ? 
+                      <>
+                        <CiLight className='text-2xl' />
+                        <span className='ml-4 font-semibold'>Light Mode</span>
+                      </>
+                      : 
+                      <>
+                        <MdDarkMode className='text-2xl' />
+                        <span className='ml-4 font-semibold'>Dark Mode</span>
+                      </>
+                    }
+                    </div>
+                </button>
+              </li>
+              <button className='absolute top-7 right-10 text-gray-600 text-4xl' onClick={() => setIsModalOpen(false)}>&times;</button>
+          </div>
+        </Modal>
+      }
     </nav>
   )
 }
